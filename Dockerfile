@@ -18,6 +18,10 @@ WORKDIR /var/www
 # Konfiguration
 RUN usermod -u 1000 www-data && usermod -a -G users www-data
 
+# Apache Konfiguration
+ADD vhost.conf /etc/apache2/sites-enabled/000-default.conf
+
+
 # Supervisord Konfiguration
 ADD supervisord.conf /etc/supervisor/supervisord.conf
 CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf"]

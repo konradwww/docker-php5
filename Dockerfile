@@ -8,7 +8,7 @@ ENV LC_ALL en_US.UTF-8
 RUN apt-get update -q && \
     DEBIAN_FRONTEND=noninteractive \
     apt-get install -yq vim supervisor curl apache2 \
-    libapache2-mod-php5 php5-gd php-pear php5-curl php5-mcrypt php5-memcache php5-xdebug php5-dev libpcre3-dev
+    libapache2-mod-php5 php5-gd php-pear php5-curl php5-mcrypt php5-memcache php5-xdebug php5-dev libpcre3-dev  libapache2-mod-auth-mysql php5-mysql
 RUN a2enmod php5
 RUN a2enmod ssl
 RUN a2enmod rewrite

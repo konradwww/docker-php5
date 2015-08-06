@@ -22,7 +22,8 @@ RUN usermod -u 1000 www-data && usermod -a -G users www-data
 ADD vhost.conf /etc/apache2/sites-enabled/000-default.conf
 
 #PHP User Configuration
-RUN echo "date.timezone=\"Europe/Berlin\" \n xdebug.max_nesting_level=250" > /etc/php5/apache2/conf.d/30-user.ini
+RUN echo "date.timezone=\"Europe/Berlin\" \nxdebug.max_nesting_level=250" > /etc/php5/apache2/conf.d/30-user.ini
+RUN echo "display_errors=1" >> /etc/php5/apache2/conf.d/30-user.ini
 RUN echo "ServerName localhost" > /etc/apache2/conf-available/user.conf && a2enconf user
 
 # Supervisord Konfiguration

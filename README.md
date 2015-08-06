@@ -1,5 +1,6 @@
 # docker-php5
-docker PHP5 container linked to MySQL container
+- docker PHP5 container linked to official mysql container
+- symfony 2.7.3 ready
 
 # setup
 1. install virtualbox and kitematic

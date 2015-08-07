@@ -20,11 +20,15 @@ RUN usermod -u 1000 www-data && usermod -a -G users www-data
 
 # Apache Konfiguration
 ADD vhost.conf /etc/apache2/sites-enabled/000-default.conf
-
-#PHP User Configuration
-RUN echo "date.timezone=\"Europe/Berlin\" \nxdebug.max_nesting_level=250" > /etc/php5/apache2/conf.d/30-user.ini
-RUN echo "display_errors=1" >> /etc/php5/apache2/conf.d/30-user.ini
 RUN echo "ServerName localhost" > /etc/apache2/conf-available/user.conf && a2enconf user
+
+# PHP User Configuration
+RUN echo "date.timezone=\"Europe/Berlin\"" > /etc/php5/apache2/conf.d/30-user.ini
+RUN echo "display_errors=1" >> /etc/php5/apache2/conf.d/30-user.ini
+
+# XDebug
+RUN echo "xdebug.remote_enable = 1\nxdebug.remote_port = 9000 \nxdebug.remote_connect_back=On \nxdebug.remote_autostart=On \nxdebug.profiler_enable=1 \nxdebug.profiler_output_dir=/tmp \nxdebug.max_nesting_level=250" >> /etc/php5/apache2/conf.d/20-xdebug.ini
+
 
 # Supervisord Konfiguration
 ADD supervisord.conf /etc/supervisor/supervisord.conf

@@ -15,4 +15,7 @@
 - user: root
 - password: root
 
+# Symfony2 installation
+- symfony new symfony_temp_dir
+- cp -rf symfony_temp_dir/ docker-php5/
 

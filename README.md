@@ -6,7 +6,7 @@
 1. install virtualbox and kitematic
 2. cd docker-php5
 3. docker-compose build
-4. docker-compose up
+4. docker-compose up -d
 5. goto http://192.168.99.100
 
 #MySQL DB Setup
